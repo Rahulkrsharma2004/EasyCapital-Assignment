@@ -1,0 +1,15 @@
+{
+    "blogs": [
+      {
+        "id": 1,
+        "title": "My First Blog Post",
+        "content": "This is the content of my first blog post."
+      },
+      {
+        "id": 2,
+        "title": "My Second Blog Post",
+        "content": "This is the content of my second blog post."
+      }
+    ]
+  }
+  
