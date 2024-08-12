@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Context } from '../context/ContextProvider';
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const {setIsLoggedIn} = useContext(Context)
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === 'admin' && password === 'password') {
+    if (username === 'admin' && password === 'admin123') {
       localStorage.setItem('authToken', 'token123');
       alert("Login Successfully")
+      setIsLoggedIn(true)
       navigate('/');
     } else {
       alert('Invalid credentials');
@@ -21,6 +24,7 @@ const LoginForm = () => {
     <form onSubmit={handleLogin} className="max-w-md mx-auto mt-16 bg-white shadow-md rounded-md p-10">
       <h2 className="text-2xl font-bold mb-8 text-center">LOGIN PAGE</h2>
       <div className="mb-4">
+        <p>username - admin</p>
         <input 
           type="text" 
           value={username} 
@@ -31,6 +35,7 @@ const LoginForm = () => {
         />
       </div>
       <div className="mb-4">
+        password - admin123
         <input 
           type="password" 
           value={password} 

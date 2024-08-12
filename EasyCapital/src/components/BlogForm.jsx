@@ -40,7 +40,7 @@ const BlogForm = ({ onSubmit, initialData }) => {
         </div>
         <button 
           type="submit" 
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className="bg-blue-500 text-white px-9 py-2 text-lg font-semibold rounded-lg hover:bg-blue-600 max-w-md mx-auto block"
         >
           {initialData ? 'Update' : 'Submit'}
         </button>

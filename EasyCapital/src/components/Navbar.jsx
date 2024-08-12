@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Context } from "../context/ContextProvider";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const {isLoggedIn, setIsLoggedIn} = useContext(Context);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check for authentication token on component mount
     const token = localStorage.getItem("authToken");
     setIsLoggedIn(!!token);
   }, []);
@@ -15,6 +15,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     setIsLoggedIn(false);
+    alert("Logout Successfully")
     navigate("/");
   };
 
